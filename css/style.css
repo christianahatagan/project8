@@ -1,0 +1,164 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    width: 100%;
+}
+
+/* Grid Element Styles */
+.grid-element {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: grid; 
+    grid-template-columns: 150px 1fr; 
+    grid-template-rows: auto auto auto; 
+    gap: 0 20px; 
+    align-items: center;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    grid-row: 1; 
+}
+
+.email {
+    grid-row: 2;
+}
+
+.city {
+    grid-row: 3; 
+    margin-bottom: 0; 
+}
+
+.name, .email, .city {
+    margin: 0;            /* Elimină marginile */
+    padding: 0;           /* Elimină paddingul */
+    line-height: 1;       /* Setează înălțimea liniei la valoarea minimă */
+}
+
+/* Profile Image */
+.profile {
+    width: 150px;
+    height: 150px;
+    background: #ddd;
+    border-radius: 50%;
+    background-image: url('path_to_image'); /* Poți adăuga imaginea de profil */
+    background-size: cover;
+    background-position: center;
+    grid-row: 1 / span 3; /* Extinde imaginea pe 3 rânduri */
+}
+
+
+/* Modal Overlay Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darken background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it is above other elements */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+}
+
+/* Initially hide the overlay */
+.hidden {
+    opacity: 0; 
+    pointer-events: none; 
+}
+
+/* Show the overlay when active */
+.overlay:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Container Styles */
+.modal {
+    background: #fff;
+    width: 400px;
+    padding: 30px 20px; 
+    position: relative;
+    text-align: center;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease, opacity 0.3s ease; 
+}
+
+/* Add transform for opening effect */
+.modal.hidden {
+    transform: scale(0.8); 
+    opacity: 0;
+}
+
+/* Profile Image Styling for Modal */
+.modal-content .profile-image {
+    width: 120px;
+    height: 120px;
+    background: #ddd;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Close Button Styling */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+/* Modal Content Text Styling */
+.modal-name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.modal-email,
+.modal-city,
+.modal-cell,
+.modal-address,
+.modal-birthdate {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
